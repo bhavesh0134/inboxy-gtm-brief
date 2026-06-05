@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inboxy GTM — Campaign Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --border: #1e1e2e;
+    --accent: #5dffb0;
+    --accent2: #ff5d8f;
+    --accent3: #5d9fff;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 13px; line-height: 1.6; }
+
+  /* HEADER */
+  header { border-bottom: 1px solid var(--border); padding: 28px 40px; display: flex; align-items: center; justify-content: space-between; }
+  header h1 { font-family: var(--font-head); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+  header h1 span { color: var(--accent); }
+  .badge { background: var(--accent); color: #000; font-size: 10px; font-weight: 500; padding: 3px 10px; border-radius: 20px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* LAYOUT */
+  .grid { display: grid; grid-template-columns: 240px 1fr; min-height: calc(100vh - 73px); }
+  nav { border-right: 1px solid var(--border); padding: 24px 0; position: sticky; top: 0; height: calc(100vh - 73px); overflow-y: auto; }
+  nav a { display: block; padding: 8px 24px; color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; transition: all 0.15s; border-left: 2px solid transparent; }
+  nav a:hover, nav a.active { color: var(--accent); border-left-color: var(--accent); background: rgba(93,255,176,0.04); }
+  nav .section-label { padding: 16px 24px 6px; color: #3a3a50; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
+
+  main { padding: 40px; overflow-y: auto; }
+
+  /* SECTIONS */
+  .section { display: none; animation: fadeIn 0.2s ease; }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  h2 { font-family: var(--font-head); font-size: 20px; font-weight: 800; margin-bottom: 24px; color: var(--text); }
+  h3 { font-family: var(--font-head); font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; margin-top: 28px; }
+
+  /* CARDS */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin-bottom: 16px; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; }
+  .stat-card .val { font-family: var(--font-head); font-size: 28px; font-weight: 800; color: var(--accent); }
+  .stat-card .lbl { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+  /* TAGS */
+  .tag { display: inline-block; background: rgba(93,255,176,0.08); border: 1px solid rgba(93,255,176,0.2); color: var(--accent); font-size: 11px; padding: 2px 8px; border-radius: 4px; margin: 2px; }
+  .tag.red { background: rgba(255,93,143,0.08); border-color: rgba(255,93,143,0.2); color: var(--accent2); }
+  .tag.blue { background: rgba(93,159,255,0.08); border-color: rgba(93,159,255,0.2); color: var(--accent3); }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); padding: 8px 12px; border-bottom: 1px solid var(--border); }
+  td { padding: 10px 12px; border-bottom: 1px solid rgba(30,30,46,0.6); font-size: 12px; vertical-align: top; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* DOMAIN LIST */
+  .domain-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+  .domain-item { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; }
+  .domain-item .domain { color: var(--accent); font-size: 12px; }
+  .domain-item .inboxes { color: var(--muted); font-size: 10px; margin-top: 4px; }
+  .tier-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin: 16px 0 8px; }
+
+  /* INLINE KV */
+  .kv { display: flex; gap: 8px; margin-bottom: 8px; }
+  .kv .k { color: var(--muted); min-width: 160px; flex-shrink: 0; }
+  .kv .v { color: var(--text); }
+
+  /* PILL ROW */
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+  /* RAMP TABLE */
+  .ramp { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+  .ramp-item { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 12px 14px; text-align: center; }
+  .ramp-item .days { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .ramp-item .vol { font-family: var(--font-head); font-size: 22px; color: var(--accent); font-weight: 800; margin: 4px 0; }
+  .ramp-item .unit { color: var(--muted); font-size: 10px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><span>Inboxy</span> — GTM Campaign Brief</h1>
+  <span class="badge">Internal · v1 · Jun 2026</span>
+</header>
+
+<div class="grid">
+  <nav>
+    <div class="section-label">Overview</div>
+    <a href="#" class="active" onclick="show('overview',this)">Product & ICP</a>
+    <a href="#" onclick="show('offer',this)">Offer & Hook</a>
+    <div class="section-label">Targeting</div>
+    <a href="#" onclick="show('titles',this)">Job Titles</a>
+    <a href="#" onclick="show('industries',this)">Industries</a>
+    <a href="#" onclick="show('filters',this)">Hard Filters</a>
+    <div class="section-label">Infrastructure</div>
+    <a href="#" onclick="show('domains',this)">33 Domains</a>
+    <a href="#" onclick="show('ramp',this)">Warm-up Ramp</a>
+    <div class="section-label">Intel</div>
+    <a href="#" onclick="show('objections',this)">Objections</a>
+    <a href="#" onclick="show('competitors',this)">Competitors</a>
+    <a href="#" onclick="show('exclusions',this)">Exclusions</a>
+  </nav>
+
+  <main>
+
+    <!-- OVERVIEW -->
+    <div id="overview" class="section active">
+      <h2>Product & ICP</h2>
+      <div class="card-grid">
+        <div class="stat-card"><div class="val">~70%</div><div class="lbl">Open Rate (claimed)</div></div>
+        <div class="stat-card"><div class="val">~32%</div><div class="lbl">Reply Rate (claimed)</div></div>
+        <div class="stat-card"><div class="val">$47</div><div class="lbl">/ month flat</div></div>
+        <div class="stat-card"><div class="val">14d</div><div class="lbl">Results timeline</div></div>
+        <div class="stat-card"><div class="val">99</div><div class="lbl">Total inboxes</div></div>
+        <div class="stat-card"><div class="val">~3K</div><div class="lbl">Emails/day at ramp</div></div>
+      </div>
+      <div class="card">
+        <div class="kv"><span class="k">Product</span><span class="v">AI-powered email warm-up & deliverability platform</span></div>
+        <div class="kv"><span class="k">Tech</span><span class="v">Private headless-browser network — not a shared pool</span></div>
+        <div class="kv"><span class="k">Website</span><span class="v">https://inboxy.io</span></div>
+        <div class="kv"><span class="k">Sender</span><span class="v">Erik Paulson</span></div>
+        <div class="kv"><span class="k">Tone</span><span class="v">Peer-to-peer casual</span></div>
+        <div class="kv"><span class="k">Trial</span><span class="v">7-day free, no credit card</span></div>
+        <div class="kv"><span class="k">Geography Phase 1</span><span class="v">🇺🇸 US + 🇨🇦 CA</span></div>
+        <div class="kv"><span class="k">Geography Phase 2</span><span class="v">GB · AU · IE · NZ · SG</span></div>
+        <div class="kv"><span class="k">Headcount range</span><span class="v">1 – 500 employees</span></div>
+      </div>
+    </div>
+
+    <!-- OFFER -->
+    <div id="offer" class="section">
+      <h2>Offer & Hook</h2>
+      <div class="card">
+        <h3>Email 1 Hook</h3>
+        <p style="color:var(--accent);font-size:14px;margin-bottom:12px;">"I ran a quick placement test on your domain and wanted to share what I found"</p>
+        <p style="color:var(--muted);">Diagnose first, pitch second. Do NOT name the product in Email 1.</p>
+      </div>
+      <div class="card">
+        <h3>Free Inbox Placement Test</h3>
+        <div class="kv"><span class="k">How it works</span><span class="v">Send a blank email to find@myips.io</span></div>
+        <div class="kv"><span class="k">Result</span><span class="v">Instant report: inbox vs spam placement</span></div>
+        <div class="kv"><span class="k">Friction</span><span class="v">Zero — no signup, no credit card</span></div>
+        <div class="kv"><span class="k">Use in sequence</span><span class="v">Email 1 CTA</span></div>
+      </div>
+      <div class="card">
+        <h3>Secondary Offer</h3>
+        <div class="kv"><span class="k">Offer</span><span class="v">7-day free trial — full access, no CC</span></div>
+        <div class="kv"><span class="k">Use in sequence</span><span class="v">Email 2 / Email 3 after engagement</span></div>
+      </div>
+      <div class="card">
+        <h3>Value Prop (one line)</h3>
+        <p>Find out in 60 seconds if your cold emails are landing in spam — and fix it automatically with AI warm-up that gets you to 70%+ open rates within 14 days.</p>
+      </div>
+    </div>
+
+    <!-- TITLES -->
+    <div id="titles" class="section">
+      <h2>Target Job Titles</h2>
+      <div class="card">
+        <h3>Founders / Owners — Priority #1 (fastest close)</h3>
+        <div class="pill-row">
+          <span class="tag">Founder</span><span class="tag">Co-Founder</span><span class="tag">CEO</span><span class="tag">Owner</span><span class="tag">Managing Director</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Sales Leadership</h3>
+        <div class="pill-row">
+          <span class="tag">Head of Sales</span><span class="tag">VP of Sales</span><span class="tag">VP Sales</span><span class="tag">Director of Sales</span><span class="tag">SDR Manager</span><span class="tag">Sales Development Manager</span><span class="tag">Outbound Lead</span><span class="tag">Head of Outbound</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Growth / Marketing</h3>
+        <div class="pill-row">
+          <span class="tag">Head of Growth</span><span class="tag">Growth Marketer</span><span class="tag">VP of Marketing</span><span class="tag">Director of Marketing</span><span class="tag">Email Marketing Manager</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Agency — Priority #2 (highest LTV)</h3>
+        <div class="pill-row">
+          <span class="tag">Agency Owner</span><span class="tag">Client Services Director</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- INDUSTRIES -->
+    <div id="industries" class="section">
+      <h2>Industries</h2>
+      <div class="card">
+        <h3>✅ In</h3>
+        <div class="pill-row">
+          <span class="tag">Computer Software</span><span class="tag">Internet</span><span class="tag">Marketing and Advertising</span><span class="tag">Online Media</span><span class="tag">Information Technology and Services</span><span class="tag">Computer & Network Security</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>❌ Out</h3>
+        <div class="pill-row">
+          <span class="tag red">Management Consulting</span><span class="tag red">Staffing and Recruiting</span><span class="tag red">Financial Services</span><span class="tag red">Banking</span><span class="tag red">Insurance</span><span class="tag red">Real Estate</span><span class="tag red">Government Administration</span><span class="tag red">Nonprofit Organization Management</span><span class="tag red">Retail</span><span class="tag red">Consumer Goods</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div id="filters" class="section">
+      <h2>Hard Filters</h2>
+      <div class="card">
+        <table>
+          <tr><th>Filter</th><th>Value</th><th>Type</th></tr>
+          <tr><td>Headcount</td><td>1 – 500 employees</td><td><span class="tag">HARD</span></td></tr>
+          <tr><td>Geography P1</td><td>US, CA</td><td><span class="tag">HARD</span></td></tr>
+          <tr><td>Job Title</td><td>See Titles tab</td><td><span class="tag">HARD</span></td></tr>
+          <tr><td>Industry</td><td>See Industries tab</td><td><span class="tag">HARD</span></td></tr>
+          <tr><td>Tech installed</td><td>Apollo / Instantly / Smartlead / Lemlist / Outreach / Salesloft / GMass / Mailshake / Reply.io</td><td><span class="tag blue">SOFT</span></td></tr>
+          <tr><td>Recently hired SDR</td><td>Signal: scaling outbound</td><td><span class="tag blue">SOFT</span></td></tr>
+          <tr><td>New domain registered</td><td>Signal: needs warm-up now</td><td><span class="tag blue">SOFT</span></td></tr>
+          <tr><td>Recent fundraise</td><td>Trigger event</td><td><span class="tag blue">SOFT</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- DOMAINS -->
+    <div id="domains" class="section">
+      <h2>33 Sending Domains</h2>
+      <div class="card-grid" style="grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;">
+        <div class="stat-card"><div class="val">33</div><div class="lbl">Domains</div></div>
+        <div class="stat-card"><div class="val">3</div><div class="lbl">Inboxes each</div></div>
+        <div class="stat-card"><div class="val">99</div><div class="lbl">Total inboxes</div></div>
+      </div>
+      <div class="card" style="margin-bottom:8px;">
+        <h3>Mailbox variants per domain</h3>
+        <div class="pill-row">
+          <span class="tag">erik@</span><span class="tag">erik_paulson@</span><span class="tag">erik.paulson@</span>
+        </div>
+      </div>
+
+      <div class="tier-label">Tier 1 — "get" prefix · Register first</div>
+      <div class="domain-grid">
+        <div class="domain-item"><div class="domain">getinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">getinboxyai.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">getinboxynow.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">getinboxypro.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">getinboxyhq.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">getinboxyapp.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">getinboxymail.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+      </div>
+
+      <div class="tier-label">Tier 2 — use / try / run prefix</div>
+      <div class="domain-grid">
+        <div class="domain-item"><div class="domain">useinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">tryinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">runinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">startinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">joininboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">meetinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">sendinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+      </div>
+
+      <div class="tier-label">Tier 3 — inboxy + descriptor</div>
+      <div class="domain-grid">
+        <div class="domain-item"><div class="domain">inboxypro.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyhq.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyapp.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyai.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxynow.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxymail.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxysend.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyteam.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxylab.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxylabs.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+      </div>
+
+      <div class="tier-label">Tier 4 — action / outcome framing · Backup</div>
+      <div class="domain-grid">
+        <div class="domain-item"><div class="domain">inboxydelivers.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyfirst.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyworks.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyfix.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">fixwithinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">boostedwithinboxy.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyboost.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyscore.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+        <div class="domain-item"><div class="domain">inboxyplatform.com</div><div class="inboxes">erik@ · erik_paulson@ · erik.paulson@</div></div>
+      </div>
+    </div>
+
+    <!-- RAMP -->
+    <div id="ramp" class="section">
+      <h2>Warm-up Ramp Schedule</h2>
+      <div class="card">
+        <p style="color:var(--muted);margin-bottom:16px;">Age all domains minimum 14 days before first cold send. SPF + DKIM + DMARC must be set before warm-up begins.</p>
+        <div class="ramp">
+          <div class="ramp-item"><div class="days">Days 1–7</div><div class="vol">5</div><div class="unit">emails/day/inbox</div></div>
+          <div class="ramp-item"><div class="days">Days 8–14</div><div class="vol">15</div><div class="unit">emails/day/inbox</div></div>
+          <div class="ramp-item"><div class="days">Days 15–21</div><div class="vol">25</div><div class="unit">emails/day/inbox</div></div>
+          <div class="ramp-item"><div class="days">Day 22+</div><div class="vol">30</div><div class="unit">emails/day/inbox · full send</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <table>
+          <tr><th>Metric</th><th>Value</th></tr>
+          <tr><td>Total inboxes</td><td>99</td></tr>
+          <tr><td>Send limit per inbox (full ramp)</td><td>30 emails/day</td></tr>
+          <tr><td>Total daily volume at full ramp</td><td>~2,970 emails/day</td></tr>
+          <tr><td>Schedule</td><td>Weekdays only</td></tr>
+          <tr><td>Warm-up tool</td><td>Inboxy (dogfood — use the product on its own domains)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- OBJECTIONS -->
+    <div id="objections" class="section">
+      <h2>Objection Handling</h2>
+      <div class="card">
+        <h3>"I already use a warm-up tool"</h3>
+        <p>Most tools use shared networks — your warm-up pool is shared with competitors. Inboxy's network is private and isolated.</p>
+      </div>
+      <div class="card">
+        <h3>"Too expensive"</h3>
+        <p>$47 flat vs $279+/mo for Warmy. One extra meeting booked pays for 6 months.</p>
+      </div>
+      <div class="card">
+        <h3>"I handle deliverability manually"</h3>
+        <p>Manual warm-up doesn't adapt in real time. Inboxy's AI pauses and adjusts automatically if spam signals emerge.</p>
+      </div>
+      <div class="card">
+        <h3>"Is AI safe for this?"</h3>
+        <p>Inboxy follows email best practices — consistent volumes, whitehat content, self-regulates if ISP flags appear.</p>
+      </div>
+    </div>
+
+    <!-- COMPETITORS -->
+    <div id="competitors" class="section">
+      <h2>Competitor Landscape</h2>
+      <div class="card">
+        <table>
+          <tr><th>Tool</th><th>Price</th><th>Weakness vs Inboxy</th></tr>
+          <tr><td>Warmy.io</td><td>$279+/mo</td><td>Enterprise pricing, shared mailbox network</td></tr>
+          <tr><td>Folderly</td><td>$72+/mo per inbox</td><td>Expensive, complex setup</td></tr>
+          <tr><td>Lemwarm</td><td>$99/mo</td><td>Tied to Lemlist, shared user clusters</td></tr>
+          <tr><td>WarmupInbox</td><td>$19/mo</td><td>No AI, basic shared network</td></tr>
+          <tr><td>Mailwarm</td><td>$29–49/mo</td><td>No AI adjustment, limited analytics</td></tr>
+          <tr><td>Warmbox</td><td>$39/mo</td><td>Shared network, no headless browser</td></tr>
+          <tr><td>MailReach</td><td>$29–49/mo</td><td>No private network isolation</td></tr>
+          <tr><td>QuickMail</td><td>Free add-on</td><td>Basic, no dedicated deliverability AI</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- EXCLUSIONS -->
+    <div id="exclusions" class="section">
+      <h2>Domain Exclusion List</h2>
+      <div class="card">
+        <h3>Competitor domains — do not contact</h3>
+        <div class="pill-row">
+          <span class="tag red">warmy.io</span><span class="tag red">lemlist.com</span><span class="tag red">warmupinbox.com</span><span class="tag red">folderly.com</span><span class="tag red">mailwarm.com</span><span class="tag red">warmbox.io</span><span class="tag red">mailreach.co</span><span class="tag red">quickmail.io</span><span class="tag red">woodpecker.co</span><span class="tag red">snov.io</span><span class="tag red">mailflow.io</span><span class="tag red">warmsend.com</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+function show(id, el) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  return false;
+}
+</script>
+</body>
+</html>
