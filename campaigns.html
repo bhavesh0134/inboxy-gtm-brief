@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inboxy GTM — Campaigns</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1><span>Inboxy</span> — GTM Campaign Brief</h1>
+  <div class="badges"><span class="badge">Internal · v2 · Jun 2026</span><span class="badge blue">AI-Ark Enabled</span></div>
+</header>
+<div class="grid">
+<nav>
+  <div class="nl">Campaigns</div>
+  <a href="#" class="active" onclick="show('priority',this)">Launch Priority</a>
+  <a href="#" onclick="show('campaigns',this)">All 20 Campaigns</a>
+  <a href="#" onclick="show('listsourcing',this)">List Sourcing</a>
+  <div class="nl">Other Pages</div>
+  <a href="index.html" class="ext">→ Overview</a>
+  <a href="intel.html" class="ext">→ Intel</a>
+</nav>
+<main>
+
+<div id="priority" class="section active">
+  <h2>Launch Priority</h2>
+  <div class="card">
+    <div class="priority-row">
+      <div class="pnum top">1</div>
+      <div><strong>Inbox Placement Audit</strong> — Broad, zero enrichment, fastest to launch<br><span style="color:var(--muted);font-size:11px">AI-Ark: base title + industry filter · No Clay needed · Test messaging immediately</span></div>
+      <span class="tag">~50K leads</span>
+    </div>
+    <div class="priority-row">
+      <div class="pnum top">2</div>
+      <div><strong>No DMARC / No SPF</strong> — Proof-based opener, highest reply rate<br><span style="color:var(--muted);font-size:11px">AI-Ark list → Clay MXToolbox enrichment → filter failed DNS checks</span></div>
+      <span class="tag">~15K leads</span>
+    </div>
+    <div class="priority-row">
+      <div class="pnum top">3</div>
+      <div><strong>Cold Outreach Tool Users</strong> — Highest intent segment<br><span style="color:var(--muted);font-size:11px">AI-Ark → Clay BuiltWith filter: Apollo/Instantly/Smartlead/Lemlist installed</span></div>
+      <span class="tag">~20K leads</span>
+    </div>
+    <div class="priority-row">
+      <div class="pnum top">4</div>
+      <div><strong>Warmy / Folderly Displacement</strong> — Competitive, high conversion<br><span style="color:var(--muted);font-size:11px">AI-Ark → Clay BuiltWith filter: competitor warm-up tool installed</span></div>
+      <span class="tag">~5K leads</span>
+    </div>
+    <div class="priority-row">
+      <div class="pnum top">5</div>
+      <div><strong>Cold Email Agencies</strong> — Highest LTV<br><span style="color:var(--muted);font-size:11px">AI-Ark: Marketing & Advertising + Internet, 1–50 headcount, agency-owner titles</span></div>
+      <span class="tag">~10K leads</span>
+    </div>
+    <div class="priority-row">
+      <div class="pnum top">6</div>
+      <div><strong>New Domain Registrations</strong> — Perfect timing<br><span style="color:var(--muted);font-size:11px">DomainTools / WHOIS via Clay → 30–90 day registration window</span></div>
+      <span class="tag">~8K leads</span>
+    </div>
+    <div class="priority-row">
+      <div class="pnum">7–20</div>
+      <div><strong>Remaining 14 campaigns</strong> — See All Campaigns tab<br><span style="color:var(--muted);font-size:11px">Launch in order after first 6 are dialled in</span></div>
+      <span class="tag blue">Phased</span>
+    </div>
+  </div>
+</div>
+
+<div id="campaigns" class="section">
+  <h2>All 20 Campaigns</h2>
+  <p style="color:var(--muted);margin-bottom:20px;font-size:12px">Click any campaign to expand strategy, copy, and variables. E1 never names the product. Spintax on all variants.</p>
+
+  <div class="ccamp">
+    <div class="ccamp-head" onclick="toggleCamp(this)">
+      <div class="ccamp-title">1 · Inbox Placement Audit</div>
+      <div class="ccamp-meta"><span class="tag">Broad</span><span class="tag blue">Launch First</span></div>
+    </div>
+    <div class="ccamp-body">
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab(this,'s1a')">Strategy</div>
+        <div class="tab" onclick="switchTab(this,'s1b')">Copy</div>
+        <div class="tab" onclick="switchTab(this,'s1c')">Variables</div>
+      </div>
+      <div id="s1a" class="tab-content active">
+        <div class="kv"><span class="k">Target</span><span class="v">All ICP titles · all in-scope industries · 1–500 headcount</span></div>
+        <div class="kv"><span class="k">Hook</span><span class="v">Free placement test — diagnose first, pitch second</span></div>
+        <div class="kv"><span class="k">List source</span><span class="v">AI-Ark: Founder/CEO/Head of Sales/SDR Manager · SaaS + Tech + Agency · US+CA · 1–500 headcount</span></div>
+        <div class="kv"><span class="k">Est. list size</span><span class="v">40,000–60,000 contacts</span></div>
+        <div class="kv"><span class="k">Enrichment</span><span class="v">None required — static copy, no Clay needed</span></div>
+        <div class="kv"><span class="k">Value prop</span><span class="v">Make more money — more replies from better inbox placement</span></div>
+      </div>
+      <div id="s1b" class="tab-content">
+        <div class="email-label">Email 1 · Day 0</div>
+        <div class="subj">Subject: {quick question|one thing|heads up}</div>
+        <div class="email-block">{{{first_name}},|Hey {first_name},}
+
+{Ran a quick check|Did a spot check} on {{{company_name}}}'s sending setup and {wanted to flag something|noticed something worth sharing}.
+
+{Curious if you know|Any idea} whether your cold emails are {landing in inbox or getting filtered|hitting the primary tab or caught by spam}?
+
+{Send a blank email to find@myips.io — you'll know in 60 seconds.|There's a 60-second test at find@myips.io if you want to check.}
+
+Worth knowing?
+
+Erik</div>
+        <div class="email-label">Email 2 · Day 3 · Threaded</div>
+        <div class="email-block">{first_name}, {most teams assume they're landing in inbox|the default assumption is usually "we're good"} until they run the test.
+
+{We built a {tool|system} that fixes the placement issue automatically — AI adjusts in real time.|We handle the warm-up side automatically. No manual tweaking.}
+
+{Open rates teams see after 14 days: around 70%.|Most see ~70% open rates within 2 weeks.}
+
+{Did you get a chance to run the check?|Sent that test yet?}
+
+Erik</div>
+        <div class="email-label">Email 3 · Day 7 · New thread</div>
+        <div class="subj">Subject: {deliverability|inbox rates|your domain}</div>
+        <div class="email-block">{first_name}, {separate note.|quick one.}
+
+{Most outbound teams leave 40–50% of replies on the table|A big chunk of replies never happen} because emails {never reach the primary inbox|land in the wrong folder}.
+
+{We've helped teams on Apollo and Smartlead get to 70%+ open rates within 14 days.|Teams on Smartlead and Instantly typically see 70%+ open rates within 2 weeks.}
+
+{If this is something you're dealing with, reply and I'll share more.|Is this on your radar?}
+
+Erik</div>
+        <div class="email-label">Email 4 · Day 12 · Final</div>
+        <div class="email-block">{first_name}, {last note from me.|wrapping this up.}
+
+{If inbox placement isn't something you're thinking about right now, that's fine.|If the timing's off, no issue.}
+
+{If it is, I can walk you through what we do in about 10 minutes.|Happy to revisit when timing's better.}
+
+A reply of 'not for us' works fine and I'll step out.
+
+Erik</div>
+      </div>
+      <div id="s1c" class="tab-content">
+        <table><tr><th>Variable</th><th>Source</th><th>Example</th></tr>
+        <tr><td><code>{{first_name}}</code></td><td>AI-Ark export</td><td>Sarah</td></tr>
+        <tr><td><code>{{company_name}}</code></td><td>AI-Ark export</td><td>Acme Corp</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="ccamp">
+    <div class="ccamp-head" onclick="toggleCamp(this)">
+      <div class="ccamp-title">2 · Cold Outreach Tool Users</div>
+      <div class="ccamp-meta"><span class="tag">Broad</span><span class="tag yellow">High Intent</span></div>
+    </div>
+    <div class="ccamp-body">
+      <div class="tabs"><div class="tab active" onclick="switchTab(this,'s2a')">Strategy</div><div class="tab" onclick="switchTab(this,'s2b')">Copy</div><div class="tab" onclick="switchTab(this,'s2c')">Variables</div></div>
+      <div id="s2a" class="tab-content active">
+        <div class="kv"><span class="k">Target</span><span class="v">Tech stack: Apollo / Instantly / Smartlead / Lemlist installed</span></div>
+        <div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay BuiltWith enrichment → filter for outreach tool tech stack</span></div>
+        <div class="kv"><span class="k">Est. list size</span><span class="v">15,000–25,000 contacts</span></div>
+        <div class="kv"><span class="k">Enrichment</span><span class="v">Clay: BuiltWith → technology = Apollo OR Instantly OR Smartlead OR Lemlist</span></div>
+        <div class="kv"><span class="k">Value prop</span><span class="v">Make more money — they're already sending, just landing in spam</span></div>
+      </div>
+      <div id="s2b" class="tab-content">
+        <div class="email-label">Email 1 · Day 0</div>
+        <div class="subj">Subject: {question for you|{{{tool_name}}} + deliverability|quick one}</div>
+        <div class="email-block">{first_name},
+
+{Noticed {{{company_name}}} is running outbound through {{{tool_name}}}.|Looks like you're running sequences through {{{tool_name}}}.}
+
+{Quick question:|One thing most teams using {{{tool_name}}} don't check:} are your domains {warmed up|being kept warm} or {running cold|sending without a warm-up layer}?
+
+{Without a warm-up layer, inbox placement drops fast — especially at volume.|At scale, unwarmed domains get filtered heavily.}
+
+{Worth knowing where you stand.|Curious if it's something you've looked at.}
+
+Erik</div>
+        <div class="email-label">Email 2 · Day 3</div>
+        <div class="email-block">{first_name}, {the gap most {{{tool_name}}} teams hit|what kills inbox placement for {{{tool_name}}} users} is sending from {cold domains|domains without a warm-up layer}.
+
+{We built a system that keeps domains healthy in the background — AI-driven, no manual work.|Our warm-up layer runs automatically.}
+
+{Teams running {{{tool_name}}} typically see ~70% open rates after 14 days.|Happy to walk through how it works.}
+
+Erik</div>
+        <div class="email-label">Email 3 · Day 7 · New thread</div>
+        <div class="subj">Subject: {inbox placement|{{{tool_name}}} + inbox|your open rates}</div>
+        <div class="email-block">{first_name},
+
+{One thing I've noticed across most {{{tool_name}}} setups:|Something that comes up a lot with {{{tool_name}}} teams:} reply rates don't reflect copy quality — they reflect inbox placement.
+
+{Ran a check on {{{company_name}}}'s domain — happy to share what I found.|I can run a quick domain check and share the findings.}
+
+{Worth 10 minutes?|Is this worth looking at?}
+
+Erik</div>
+        <div class="email-label">Email 4 · Day 12</div>
+        <div class="email-block">{first_name}, {closing this out.|last one from me.}
+
+{If {{{tool_name}}} is working well for you, great.|If deliverability isn't a gap right now, fair enough.}
+
+The placement test is at find@myips.io when the timing's right.
+
+A reply of 'not for us' works and I'll step out.
+
+Erik</div>
+      </div>
+      <div id="s2c" class="tab-content">
+        <table><tr><th>Variable</th><th>Source</th><th>Example</th></tr>
+        <tr><td><code>{{tool_name}}</code></td><td>Clay → BuiltWith tech stack</td><td>Instantly</td></tr>
+        <tr><td><code>{{first_name}}</code></td><td>AI-Ark</td><td>Marcus</td></tr>
+        <tr><td><code>{{company_name}}</code></td><td>AI-Ark</td><td>GrowthHQ</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="ccamp">
+    <div class="ccamp-head" onclick="toggleCamp(this)">
+      <div class="ccamp-title">3 · New Domain Registrations</div>
+      <div class="ccamp-meta"><span class="tag">Focused</span><span class="tag yellow">Timing Play</span></div>
+    </div>
+    <div class="ccamp-body">
+      <div class="tabs"><div class="tab active" onclick="switchTab(this,'s3a')">Strategy</div><div class="tab" onclick="switchTab(this,'s3b')">Copy</div><div class="tab" onclick="switchTab(this,'s3c')">Variables</div></div>
+      <div id="s3a" class="tab-content active">
+        <div class="kv"><span class="k">Target</span><span class="v">Domains registered in last 30–90 days matching ICP titles</span></div>
+        <div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay WHOIS enrichment → filter domain_age &lt; 90 days</span></div>
+        <div class="kv"><span class="k">Est. list size</span><span class="v">5,000–10,000 contacts</span></div>
+        <div class="kv"><span class="k">Enrichment</span><span class="v">Clay: DomainTools / WHOIS API → domain registration date</span></div>
+        <div class="kv"><span class="k">Value prop</span><span class="v">Mitigate risk — new domain = spam risk for first 90 days</span></div>
+      </div>
+      <div id="s3b" class="tab-content">
+        <div class="email-label">Email 1 · Day 0</div>
+        <div class="subj">Subject: {{{company_name}}|your domain|new domain}</div>
+        <div class="email-block">{first_name},
+
+{Noticed {{{domain}}} was registered recently.|Saw {{{domain}}} is fairly new.}
+
+{One thing most teams miss at this stage:|Quick heads-up:} {cold emails from new domains go straight to spam|new domains have no sender reputation} for the {first 60–90 days|first few months} unless they're warmed up first.
+
+{find@myips.io will show you where you stand in 60 seconds.|You can check at find@myips.io — takes 60 seconds.}
+
+Worth knowing before your first campaign goes out.
+
+Erik</div>
+        <div class="email-label">Email 2 · Day 3</div>
+        <div class="email-block">{first_name}, {most teams launching on a new domain|a lot of new domain owners} don't realize {placement is a problem|the spam risk} until {the first campaign tanks|they've burned the domain}.
+
+{We handle the warm-up automatically — AI-driven, runs in the background.|Our system builds sender reputation gradually.}
+
+{14 days, 70%+ open rates. Happy to show you how it works.|Want to see how teams set this up?}
+
+Erik</div>
+        <div class="email-label">Email 3 · Day 7 · New thread</div>
+        <div class="subj">Subject: {before your first campaign|{{{domain}}} health|sender reputation}</div>
+        <div class="email-block">{first_name},
+
+{If you're planning to run outbound from {{{domain}}}, there's a step most teams skip.|One thing worth doing before the first campaign from {{{domain}}}:}
+
+{Warm it up properly — cold sends from an unaged domain get filtered heavily.|Building sender reputation before sending is the difference between inbox and spam.}
+
+{15 minutes and I can walk you through how we do this.|Worth a short conversation?}
+
+Erik</div>
+        <div class="email-label">Email 4 · Day 12</div>
+        <div class="email-block">{first_name}, {last note.|wrapping this up.}
+
+{The domain warm-up question will matter as soon as your first campaign goes out.|When you start sending, this will come up.}
+
+find@myips.io is always there when you want to test.
+
+A reply of 'not for us' is enough and I'll step out.
+
+Erik</div>
+      </div>
+      <div id="s3c" class="tab-content">
+        <table><tr><th>Variable</th><th>Source</th><th>Example</th></tr>
+        <tr><td><code>{{domain}}</code></td><td>Clay → WHOIS / DomainTools API</td><td>newstartup.com</td></tr>
+        <tr><td><code>{{first_name}}</code></td><td>AI-Ark</td><td>James</td></tr>
+        <tr><td><code>{{company_name}}</code></td><td>AI-Ark</td><td>LaunchPad</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">4 · Recently Hired SDR / Sales Rep</div><div class="ccamp-meta"><span class="tag">Focused</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Companies that posted or filled SDR/BDR roles in last 60 days</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay LinkedIn job postings filter: SDR / BDR / Outbound Rep posted &lt; 60 days ago</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">8,000–12,000 contacts</span></div><div class="kv"><span class="k">Enrichment</span><span class="v">Clay: LinkedIn job scraper → job title contains "SDR" OR "BDR" OR "Outbound" posted in last 60 days</span></div><div class="kv"><span class="k">Value prop</span><span class="v">Save money — prevent wasted SDR ramp on domains that land in spam</span></div><div class="kv"><span class="k">E1 hook</span><span class="v">"One thing that kills SDR ramp before it starts: domain health"</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">5 · Cold Email Agencies (Lookalike)</div><div class="ccamp-meta"><span class="tag">Focused</span><span class="tag yellow">Highest LTV</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Lead gen / outbound agencies, 1–50 headcount, Agency Owner / Founder titles</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark: Marketing & Advertising + Internet industry · 1–50 headcount · Agency Owner / Founder / Managing Director</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">8,000–15,000 contacts</span></div><div class="kv"><span class="k">Enrichment</span><span class="v">Claygent: scrape agency website for client count / services description to confirm outbound focus</span></div><div class="kv"><span class="k">Value prop</span><span class="v">Mitigate risk — one burned client domain affects entire portfolio</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">6 · Warmy / Folderly / Lemwarm Displacement</div><div class="ccamp-meta"><span class="tag">Focused</span><span class="tag yellow">Competitive</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Companies with Warmy / Folderly / Lemwarm / WarmupInbox in tech stack</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay BuiltWith → filter: competitor warm-up tool installed</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">3,000–6,000 contacts</span></div><div class="kv"><span class="k">Key angle</span><span class="v">Ask the "shared vs private" question — let them self-identify the gap. $47 vs $279+/mo.</span></div><div class="kv"><span class="k">Variable</span><span class="v"><code>{{competitor_tool}}</code> + <code>{{competitor_price}}</code> from Clay BuiltWith + static map</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">7 · Founder-Led Outbound</div><div class="ccamp-meta"><span class="tag">Focused</span><span class="tag yellow">Fast Close</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Founder/CEO at 1–20 headcount, no dedicated sales hire on LinkedIn</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark: Founder/CEO · 1–20 headcount · SaaS/Tech · US+CA → Clay: LinkedIn headcount check — 0 sales employees</span></div><div class="kv"><span class="k">Hook</span><span class="v">"Doing your own outbound? $47/month is the easiest ROI you'll find this quarter"</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">20,000–35,000 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">8 · LinkedIn Deliverability Content Engagers</div><div class="ccamp-meta"><span class="tag">Focused</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">People who liked/commented on deliverability / cold email posts on LinkedIn</span></div><div class="kv"><span class="k">List source</span><span class="v">PhantomBuster: export engagers from posts by Vin Matano / Alex Berman / Nick Abraham / Jason Bay → enrich with email via AI-Ark or Clay waterfall</span></div><div class="kv"><span class="k">Hook</span><span class="v">Pre-educated buyer — skip education, go straight to solution</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">2,000–5,000 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">9 · Post-Fundraise Outbound Scale</div><div class="ccamp-meta"><span class="tag">Focused</span><span class="tag yellow">Trigger</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Seed / Series A raised in last 6 months, &lt;100 headcount</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay Crunchbase enrichment → filter: funding round announced &lt; 180 days ago · stage = Seed OR Series A · headcount &lt; 100</span></div><div class="kv"><span class="k">Hook</span><span class="v">"Just raised? Your cold outreach volume is about to 10x — make sure your domains are ready"</span></div><div class="kv"><span class="k">Variable</span><span class="v"><code>{{funding_round}}</code> from Clay → Crunchbase</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">5,000–8,000 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">10 · High-Volume Senders (Job Description Signal)</div><div class="ccamp-meta"><span class="tag">Focused</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Companies with job postings mentioning Apollo / Instantly / Smartlead / "cold email" / "deliverability"</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay LinkedIn job scraper → Claygent reads job description → filter for outbound tool mentions</span></div><div class="kv"><span class="k">Hook</span><span class="v">"You're hiring for outbound — here's the infrastructure problem your new hire will hit on day 1"</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">6,000–10,000 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">11 · Burned Domain Recovery</div><div class="ccamp-meta"><span class="tag">Focused</span><span class="tag yellow">Proof-Based</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Domains with missing DMARC / SPF failures / blacklist hits</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay MXToolbox API enrichment → filter: DMARC missing OR SPF fail OR blacklist hit &gt; 0</span></div><div class="kv"><span class="k">Hook</span><span class="v">Specific DNS finding — "Ran a check on yourdomain.com and found [issue]"</span></div><div class="kv"><span class="k">Variables</span><span class="v"><code>{{domain}}</code> · <code>{{dns_issue}}</code> — both from Clay MXToolbox</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">10,000–20,000 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">12 · Cold Email Community Members</div><div class="ccamp-meta"><span class="tag">Focused</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Members / subscribers of Cold Email Wizard, 30MPC, Email Outreach Alliance</span></div><div class="kv"><span class="k">List source</span><span class="v">PhantomBuster: scrape community member lists / event attendees → enrich email via AI-Ark or Clay waterfall</span></div><div class="kv"><span class="k">Hook</span><span class="v">"You already know deliverability matters — here's the fix most courses skip"</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">1,000–3,000 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">13 · SaaS Founders Publishing About Growth</div><div class="ccamp-meta"><span class="tag">Focused</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Founders posting about growth / outbound / cold email on LinkedIn in last 30 days</span></div><div class="kv"><span class="k">List source</span><span class="v">PhantomBuster: LinkedIn post search → "cold email" OR "outbound" OR "inbox placement" · filter by Founder/CEO title → Claygent reads last 3 posts</span></div><div class="kv"><span class="k">Hook</span><span class="v">Reference their specific post topic</span></div><div class="kv"><span class="k">Variable</span><span class="v"><code>{{post_topic}}</code> — Claygent reads LinkedIn post</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">1,000–2,500 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">14 · Agency Owners — 10+ Client Domains</div><div class="ccamp-meta"><span class="tag">Niche</span><span class="tag yellow">Highest LTV</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Agencies with 10+ clients on website or Clutch.co listing, headcount 5–50</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark: Marketing & Advertising + Internet · 5–50 headcount · Agency Owner / Founder → Claygent: scrape website for client count or Clutch profile</span></div><div class="kv"><span class="k">Variable</span><span class="v"><code>{{client_count}}</code> — Claygent website/Clutch scrape</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">500–1,500 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">15 · Golden ICP — Multi-Signal Research</div><div class="ccamp-meta"><span class="tag">Niche</span><span class="tag yellow">Highest Reply Rate</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Prospects where Claygent finds 2+ public signals of outbound pain</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Claygent multi-signal check: DNS check + LinkedIn post + job posting → only pass contacts with 2+ signals</span></div><div class="kv"><span class="k">Variables</span><span class="v"><code>{{signal_1}}</code> <code>{{signal_2}}</code> <code>{{signal_3}}</code> — all from Claygent multi-source research</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">500–2,000 contacts (very filtered, very high reply rate)</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">16 · Competitor Followers on LinkedIn</div><div class="ccamp-meta"><span class="tag">Niche</span><span class="tag yellow">Intent Signal</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">People following Warmy.io / Folderly / Lemwarm / WarmupInbox on LinkedIn</span></div><div class="kv"><span class="k">List source</span><span class="v">PhantomBuster: export LinkedIn followers of competitor company pages → enrich email via AI-Ark or Clay waterfall → filter by ICP titles</span></div><div class="kv"><span class="k">Hook</span><span class="v">"You're following [competitor] — curious what made you look at warm-up tools?"</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">1,000–3,000 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">17 · Cold Email Podcast Guests</div><div class="ccamp-meta"><span class="tag">Niche</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Guests on 30MPC / Sales Feed / The SDR Show / Cold Email Wizard podcast</span></div><div class="kv"><span class="k">List source</span><span class="v">Claygent: scrape podcast episode guest lists → enrich name + company via AI-Ark → filter by ICP titles</span></div><div class="kv"><span class="k">Variables</span><span class="v"><code>{{podcast_name}}</code> · <code>{{episode_topic}}</code> — Claygent show notes scrape</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">100–500 contacts (tiny list, massive relevance)</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">18 · No DMARC / No SPF — Raw DNS Check</div><div class="ccamp-meta"><span class="tag">Niche</span><span class="tag yellow">Launch #2</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Any ICP company that fails basic DNS checks</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay MXToolbox API in bulk → filter: no_dmarc = true OR spf_fail = true OR dkim_missing = true</span></div><div class="kv"><span class="k">Hook</span><span class="v">Report a specific factual finding — "Your domain is missing [DMARC/SPF]"</span></div><div class="kv"><span class="k">Variables</span><span class="v"><code>{{domain}}</code> · <code>{{dns_issue}}</code> = "no DMARC record found" / "SPF record missing" / "DKIM not configured"</span></div><div class="kv"><span class="k">Why it works</span><span class="v">You're not selling — you're reporting a finding. Hard to argue with a factual DNS check.</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">10,000–20,000 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">19 · Series B+ First SDR Team</div><div class="ccamp-meta"><span class="tag">Niche</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Series B+ companies hiring first SDR function (no current SDR on LinkedIn + open SDR posting)</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark base list → Clay Crunchbase: funding stage = Series B/C AND raised &lt; 365 days ago → Clay LinkedIn: 0 SDR titles currently → Clay job scraper: open SDR posting exists</span></div><div class="kv"><span class="k">Variable</span><span class="v"><code>{{funding_round}}</code> from Clay → Crunchbase</span></div><div class="kv"><span class="k">Est. list size</span><span class="v">500–1,500 contacts</span></div></div></div>
+
+  <div class="ccamp"><div class="ccamp-head" onclick="toggleCamp(this)"><div class="ccamp-title">20 · Instantly / Smartlead Power Users</div><div class="ccamp-meta"><span class="tag">Niche</span></div></div><div class="ccamp-body"><div class="kv"><span class="k">Target</span><span class="v">Companies running 10+ inboxes (signal: LinkedIn posts or job postings referencing inbox count)</span></div><div class="kv"><span class="k">List source</span><span class="v">AI-Ark → Clay BuiltWith: Instantly OR Smartlead → Claygent: check LinkedIn posts + job postings for inbox volume mentions → filter inbox_count &gt;= 10</span></div><div class="kv"><span class="k">Variables</span><span class="v"><code>{{inbox_count}}</code> · <code>{{tool_name}}</code></span></div><div class="kv"><span class="k">Est. list size</span><span class="v">500–2,000 contacts</span></div></div></div>
+</div>
+
+<div id="listsourcing" class="section">
+  <h2>List Sourcing Strategy</h2>
+  <div class="card">
+    <h3>Primary Stack</h3>
+    <table>
+      <tr><th>Tool</th><th>Role</th><th>Used For</th></tr>
+      <tr><td><strong style="color:var(--accent)">AI-Ark</strong></td><td>Primary list source</td><td>All 20 campaigns — title + industry + headcount + geography filters</td></tr>
+      <tr><td><strong style="color:var(--accent3)">Clay</strong></td><td>Enrichment layer</td><td>Tech stack (BuiltWith), DNS checks (MXToolbox), job postings (LinkedIn scraper), funding data (Crunchbase), Claygent AI research</td></tr>
+      <tr><td><strong style="color:var(--accent3)">PhantomBuster</strong></td><td>LinkedIn data</td><td>Competitor followers, content engagers, podcast guest lists — campaigns 8, 12, 13, 16</td></tr>
+      <tr><td><strong style="color:var(--accent3)">MXToolbox API</strong></td><td>DNS validation</td><td>Campaigns 11, 18 — bulk DMARC/SPF/DKIM check on prospect domains</td></tr>
+      <tr><td><strong style="color:var(--accent3)">Crunchbase (via Clay)</strong></td><td>Funding signals</td><td>Campaigns 9, 19 — fundraise stage + date</td></tr>
+      <tr><td><strong style="color:var(--accent3)">Claygent</strong></td><td>AI research agent</td><td>Campaigns 5, 13, 14, 15, 17, 20 — website scraping, post reading, multi-signal research</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>AI-Ark Base Filter (applies to all campaigns)</h3>
+    <div class="kv"><span class="k">Titles</span><span class="v">Founder · Co-Founder · CEO · Owner · Head of Sales · VP Sales · SDR Manager · Head of Growth · Agency Owner · Email Marketing Manager</span></div>
+    <div class="kv"><span class="k">Industries</span><span class="v">Computer Software · Internet · Marketing and Advertising · Online Media · IT and Services · Computer & Network Security</span></div>
+    <div class="kv"><span class="k">Headcount</span><span class="v">1 – 500 employees</span></div>
+    <div class="kv"><span class="k">Geography</span><span class="v">United States · Canada (Phase 1)</span></div>
+    <div class="kv"><span class="k">Est. base list</span><span class="v">200,000–400,000 contacts before campaign-specific filters</span></div>
+  </div>
+  <div class="card">
+    <h3>Per-Campaign Sourcing</h3>
+    <table>
+      <tr><th>#</th><th>Campaign</th><th>Source</th><th>Extra Filter</th><th>Est. Size</th></tr>
+      <tr><td>1</td><td>Inbox Placement Audit</td><td>AI-Ark only</td><td>None — base list</td><td>40–60K</td></tr>
+      <tr><td>2</td><td>Outreach Tool Users</td><td>AI-Ark → Clay BuiltWith</td><td>Tech: Apollo/Instantly/Smartlead/Lemlist</td><td>15–25K</td></tr>
+      <tr><td>3</td><td>New Domain Registrations</td><td>AI-Ark → Clay WHOIS</td><td>Domain age &lt; 90 days</td><td>5–10K</td></tr>
+      <tr><td>4</td><td>Recently Hired SDR</td><td>AI-Ark → Clay LinkedIn jobs</td><td>SDR/BDR posting &lt; 60 days</td><td>8–12K</td></tr>
+      <tr><td>5</td><td>Cold Email Agencies</td><td>AI-Ark → Claygent</td><td>Agency website confirms outbound focus</td><td>8–15K</td></tr>
+      <tr><td>6</td><td>Competitor Displacement</td><td>AI-Ark → Clay BuiltWith</td><td>Tech: Warmy/Folderly/Lemwarm</td><td>3–6K</td></tr>
+      <tr><td>7</td><td>Founder-Led Outbound</td><td>AI-Ark → Clay LinkedIn</td><td>Headcount 1–20, 0 sales employees</td><td>20–35K</td></tr>
+      <tr><td>8</td><td>LinkedIn Engagers</td><td>PhantomBuster → AI-Ark enrich</td><td>Engagers on deliverability posts</td><td>2–5K</td></tr>
+      <tr><td>9</td><td>Post-Fundraise</td><td>AI-Ark → Clay Crunchbase</td><td>Seed/Series A &lt; 180 days ago</td><td>5–8K</td></tr>
+      <tr><td>10</td><td>Job Description Signal</td><td>AI-Ark → Clay job scraper</td><td>JD mentions outreach tools</td><td>6–10K</td></tr>
+      <tr><td>11</td><td>Burned Domain Recovery</td><td>AI-Ark → Clay MXToolbox</td><td>DMARC missing OR SPF fail</td><td>10–20K</td></tr>
+      <tr><td>12</td><td>Community Members</td><td>PhantomBuster → AI-Ark enrich</td><td>Cold email community members</td><td>1–3K</td></tr>
+      <tr><td>13</td><td>SaaS Founders / Content</td><td>PhantomBuster → Claygent → AI-Ark</td><td>LinkedIn posts on growth/outbound topics</td><td>1–2.5K</td></tr>
+      <tr><td>14</td><td>Agency 10+ Clients</td><td>AI-Ark → Claygent</td><td>Website/Clutch client_count ≥ 10</td><td>500–1.5K</td></tr>
+      <tr><td>15</td><td>Golden ICP</td><td>AI-Ark → Claygent multi-signal</td><td>2+ public pain signals confirmed</td><td>500–2K</td></tr>
+      <tr><td>16</td><td>Competitor Followers</td><td>PhantomBuster → AI-Ark enrich</td><td>LinkedIn followers of Warmy/Folderly pages</td><td>1–3K</td></tr>
+      <tr><td>17</td><td>Podcast Guests</td><td>Claygent → AI-Ark enrich</td><td>Cold email podcast episode guests</td><td>100–500</td></tr>
+      <tr><td>18</td><td>No DMARC / No SPF</td><td>AI-Ark → Clay MXToolbox bulk</td><td>DNS check fail on any record</td><td>10–20K</td></tr>
+      <tr><td>19</td><td>Series B+ First SDR</td><td>AI-Ark → Clay Crunchbase + LinkedIn</td><td>Series B/C + no current SDR + open SDR JD</td><td>500–1.5K</td></tr>
+      <tr><td>20</td><td>Power Users</td><td>AI-Ark → Clay BuiltWith + Claygent</td><td>10+ inboxes referenced in posts/JDs</td><td>500–2K</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>Verification Flow</h3>
+    <div class="kv"><span class="k">Step 1</span><span class="v">AI-Ark export → apply campaign-specific enrichment filters in Clay</span></div>
+    <div class="kv"><span class="k">Step 2</span><span class="v">ZeroBounce / NeverBounce → remove invalid emails</span></div>
+    <div class="kv"><span class="k">Step 3</span><span class="v">Scrubby.io → catch-all validation on remaining</span></div>
+    <div class="kv"><span class="k">Step 4</span><span class="v">Run /list-quality-scorecard → must hit B+ before upload</span></div>
+    <div class="kv"><span class="k">Step 5</span><span class="v">Upload to Smartlead as DRAFT via /smartlead-campaign-upload-public</span></div>
+  </div>
+</div>
+
+</main>
+</div>
+<script>
+function show(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  return false;
+}
+function toggleCamp(head){
+  var body=head.nextElementSibling;
+  var isOpen=body.classList.contains('open');
+  body.classList.toggle('open',!isOpen);
+  head.classList.toggle('open',!isOpen);
+}
+function switchTab(tab,contentId){
+  var body=tab.closest('.ccamp-body');
+  body.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  body.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  tab.classList.add('active');
+  document.getElementById(contentId).classList.add('active');
+}
+</script>
+</body>
+</html>

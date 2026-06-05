@@ -1,0 +1,70 @@
+:root{--bg:#0a0a0f;--surface:#12121a;--border:#1e1e2e;--accent:#5dffb0;--accent2:#ff5d8f;--accent3:#5d9fff;--accent4:#ffd75d;--text:#e8e8f0;--muted:#6b6b80;--font-head:'Syne',sans-serif;--font-body:'DM Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:13px;line-height:1.6}
+header{border-bottom:1px solid var(--border);padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+header h1{font-family:var(--font-head);font-size:20px;font-weight:800;letter-spacing:-.5px}
+header h1 span{color:var(--accent)}
+.badges{display:flex;gap:8px}
+.badge{background:var(--accent);color:#000;font-size:10px;font-weight:500;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase}
+.badge.blue{background:var(--accent3)}
+.grid{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 65px)}
+nav{border-right:1px solid var(--border);padding:16px 0;position:sticky;top:0;height:calc(100vh - 65px);overflow-y:auto}
+nav a{display:block;padding:6px 20px;color:var(--muted);text-decoration:none;font-size:11px;letter-spacing:.5px;text-transform:uppercase;transition:all .15s;border-left:2px solid transparent}
+nav a:hover,nav a.active{color:var(--accent);border-left-color:var(--accent);background:rgba(93,255,176,.04)}
+nav .nl{padding:14px 20px 4px;color:#2a2a40;font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+nav a.ext{color:#3a3a55}
+nav a.ext:hover{color:var(--accent3);border-left-color:var(--accent3);background:rgba(93,159,255,.04)}
+main{padding:32px 40px;overflow-y:auto}
+.section{display:none;animation:fi .2s ease}
+.section.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+h2{font-family:var(--font-head);font-size:19px;font-weight:800;margin-bottom:20px}
+h3{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;margin-top:24px}
+h3:first-child{margin-top:0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 22px;margin-bottom:14px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:14px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 18px}
+.stat-card .val{font-family:var(--font-head);font-size:26px;font-weight:800;color:var(--accent)}
+.stat-card .lbl{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.tag{display:inline-block;background:rgba(93,255,176,.08);border:1px solid rgba(93,255,176,.2);color:var(--accent);font-size:11px;padding:2px 8px;border-radius:4px;margin:2px}
+.tag.red{background:rgba(255,93,143,.08);border-color:rgba(255,93,143,.2);color:var(--accent2)}
+.tag.blue{background:rgba(93,159,255,.08);border-color:rgba(93,159,255,.2);color:var(--accent3)}
+.tag.yellow{background:rgba(255,215,93,.08);border-color:rgba(255,215,93,.2);color:var(--accent4)}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);padding:8px 10px;border-bottom:1px solid var(--border)}
+td{padding:9px 10px;border-bottom:1px solid rgba(30,30,46,.6);font-size:12px;vertical-align:top}
+tr:hover td{background:rgba(255,255,255,.02)}
+.kv{display:flex;gap:8px;margin-bottom:7px}
+.kv .k{color:var(--muted);min-width:160px;flex-shrink:0}
+.pill-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.domain-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:7px}
+.di{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:9px 13px}
+.di .d{color:var(--accent);font-size:12px}
+.di .i{color:var(--muted);font-size:10px;margin-top:3px}
+.tier-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:14px 0 7px}
+.ramp{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.ri{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:12px;text-align:center}
+.ri .days{color:var(--muted);font-size:10px;text-transform:uppercase}
+.ri .vol{font-family:var(--font-head);font-size:22px;color:var(--accent);font-weight:800;margin:3px 0}
+.ri .unit{color:var(--muted);font-size:10px}
+.ccamp{background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;overflow:hidden}
+.ccamp-head{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border-bottom:1px solid transparent}
+.ccamp-head:hover{background:rgba(255,255,255,.02)}
+.ccamp-head.open{border-bottom-color:var(--border)}
+.ccamp-title{font-family:var(--font-head);font-size:13px;font-weight:700}
+.ccamp-meta{display:flex;gap:8px;align-items:center}
+.ccamp-body{display:none;padding:18px}
+.ccamp-body.open{display:block}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:16px}
+.tab{padding:7px 14px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.email-block{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:14px 16px;margin-bottom:10px;white-space:pre-wrap;font-size:12px;line-height:1.7}
+.email-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px}
+.subj{color:var(--accent4);font-size:11px;margin-bottom:6px}
+code{background:rgba(93,255,176,.08);color:var(--accent);padding:1px 5px;border-radius:3px;font-size:11px}
+.priority-row{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}
+.priority-row:last-child{border-bottom:none}
+.pnum{font-family:var(--font-head);font-size:18px;font-weight:800;color:var(--border)}
+.pnum.top{color:var(--accent)}

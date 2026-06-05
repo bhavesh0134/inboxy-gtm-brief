@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inboxy GTM — Intel</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1><span>Inboxy</span> — GTM Campaign Brief</h1>
+  <div class="badges"><span class="badge">Internal · v2 · Jun 2026</span><span class="badge blue">AI-Ark Enabled</span></div>
+</header>
+<div class="grid">
+<nav>
+  <div class="nl">Intel</div>
+  <a href="#" class="active" onclick="show('objections',this)">Objections</a>
+  <a href="#" onclick="show('competitors',this)">Competitors</a>
+  <a href="#" onclick="show('exclusions',this)">Exclusions</a>
+  <div class="nl">Other Pages</div>
+  <a href="index.html" class="ext">→ Overview</a>
+  <a href="campaigns.html" class="ext">→ Campaigns</a>
+</nav>
+<main>
+
+<div id="objections" class="section active">
+  <h2>Objection Handling</h2>
+  <div class="card"><h3>"I already use a warm-up tool"</h3><p>Most tools use shared networks — your warm-up pool is shared with competitors. Inboxy's network is private and isolated.</p></div>
+  <div class="card"><h3>"Too expensive"</h3><p>$47 flat vs $279+/mo for Warmy. One extra meeting booked pays for 6 months.</p></div>
+  <div class="card"><h3>"I handle deliverability manually"</h3><p>Manual warm-up doesn't adapt in real time. Inboxy's AI pauses and adjusts automatically if spam signals emerge.</p></div>
+  <div class="card"><h3>"Is AI safe for this?"</h3><p>Inboxy follows email best practices — consistent volumes, whitehat content, self-regulates if ISP flags appear.</p></div>
+</div>
+
+<div id="competitors" class="section">
+  <h2>Competitor Landscape</h2>
+  <div class="card">
+    <table>
+      <tr><th>Tool</th><th>Price</th><th>Network Type</th><th>Weakness vs Inboxy</th></tr>
+      <tr><td>Warmy.io</td><td>$279+/mo</td><td>Shared mailbox</td><td>Enterprise pricing, shared pool</td></tr>
+      <tr><td>Folderly</td><td>$72+/mo per inbox</td><td>Shared</td><td>Expensive, complex setup</td></tr>
+      <tr><td>Lemwarm</td><td>$99/mo</td><td>Shared user clusters</td><td>Tied to Lemlist, shared clusters</td></tr>
+      <tr><td>WarmupInbox</td><td>$19/mo</td><td>Shared</td><td>No AI, basic network</td></tr>
+      <tr><td>Mailwarm</td><td>$29–49/mo</td><td>Shared</td><td>No AI adjustment</td></tr>
+      <tr><td>Warmbox</td><td>$39/mo</td><td>Shared</td><td>No private isolation</td></tr>
+      <tr><td>MailReach</td><td>$29–49/mo</td><td>Shared</td><td>No private network</td></tr>
+      <tr><td>QuickMail</td><td>Free add-on</td><td>Shared</td><td>Basic, no dedicated AI</td></tr>
+      <tr><td><strong style="color:var(--accent)">Inboxy</strong></td><td><strong style="color:var(--accent)">$47/mo flat</strong></td><td><strong style="color:var(--accent)">Private headless-browser</strong></td><td>—</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="exclusions" class="section">
+  <h2>Domain Exclusion List</h2>
+  <div class="card"><h3>Competitor domains — do not contact</h3><div class="pill-row"><span class="tag red">warmy.io</span><span class="tag red">lemlist.com</span><span class="tag red">warmupinbox.com</span><span class="tag red">folderly.com</span><span class="tag red">mailwarm.com</span><span class="tag red">warmbox.io</span><span class="tag red">mailreach.co</span><span class="tag red">quickmail.io</span><span class="tag red">woodpecker.co</span><span class="tag red">snov.io</span><span class="tag red">mailflow.io</span><span class="tag red">warmsend.com</span></div></div>
+</div>
+
+</main>
+</div>
+<script>
+function show(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  return false;
+}
+</script>
+</body>
+</html>
